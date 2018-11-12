@@ -19,6 +19,8 @@ public:
     ~client();
 
     Q_INVOKABLE void connec_to_srv();
+    Q_INVOKABLE void disconnect_from_srv();
+    Q_INVOKABLE void msg_send(QString data);
 
     enum SOCK_STAUS
     {
@@ -34,9 +36,11 @@ public:
 public slots:
     void set_status(const SOCK_STAUS &status);
     void set_connect_status();
+    void msg_handle();
 
 signals:
     void status_changed();
+    void msg_rcv(QByteArray data);
 
 private:
     QByteArray buf;
