@@ -18,7 +18,7 @@ public:
     explicit  client(QObject *parent = nullptr);
     ~client();
 
-    Q_INVOKABLE void connec_to_srv();
+    Q_INVOKABLE void connec_to_srv(QString srv_ip);
     Q_INVOKABLE void disconnect_from_srv();
     Q_INVOKABLE void msg_send(QString data);
 

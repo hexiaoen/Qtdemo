@@ -11,6 +11,7 @@ int main(int argc, char *argv[])
 
     QGuiApplication app(argc, argv);
 
+
     qmlRegisterType<client>("he.qt.client", 1, 0, "Client");
 
     QQmlApplicationEngine engine;

@@ -1,6 +1,7 @@
 #include "client.h"
 #include <QDebug>
 
+
 client::client(QObject *parent ):QObject (parent)
 {
     connect_status = OFFLINE;
@@ -47,12 +48,12 @@ void client::set_connect_status()
     set_status(ONLINE);
 }
 
-void client::connec_to_srv()
+void client::connec_to_srv(QString srv_ip)
 {
     if(status() == client::OFFLINE)
     {
         qDebug("connecting...");
-        sock->connectToHost("192.168.2.40", 5555);
+        sock->connectToHost(srv_ip, 5555);
         set_status(ONPROCESS);
     }
 }
@@ -78,3 +79,4 @@ void client::msg_send(QString data)
 {
     sock->write(data.toStdString().c_str());
 }
+
